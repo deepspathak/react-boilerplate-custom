@@ -1,0 +1,27 @@
+/**
+ *
+ * Test {{ properCase name }}
+ *
+ */
+
+import React from 'react';
+import { shallow } from 'enzyme';
+import { {{ properCase name }} } from '../index';
+
+describe('<{{ properCase name }} />', () => {
+  it('should exist', () => {
+    expect(shallow(<{{ properCase name }} />).exists()).toBe(true);
+  });
+
+  it('should show the description if showDescription is true', () => {
+    expect(
+      shallow(<{{ properCase name }} showDescription />).find('p').length
+    ).toBe(1);
+  });
+
+  it('should not show the description if showDescription is false', () => {
+    expect(
+      shallow(<{{ properCase name }} showDescription={false} />).find('p').length
+    ).toBe(0);
+  });
+});

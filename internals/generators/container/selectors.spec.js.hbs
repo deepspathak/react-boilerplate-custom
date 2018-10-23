@@ -1,0 +1,66 @@
+/**
+ *
+ * Test {{properCase name }} Selectors
+ *
+ */
+
+import { NAMESPACE } from '../constants';
+import { getName, getShowAlert, getShowReversedAlert } from '../selectors';
+
+describe('{{properCase name }} Selectors', () => {
+  describe('getName', () => {
+    it('should get the name', () => {
+      const name = 'foo';
+      const state = {
+        [NAMESPACE]: {
+          name,
+        },
+      };
+      expect(getName(state)).toEqual(name);
+    });
+  });
+
+  describe('getShowAlert', () => {
+    it('should get showAlert', () => {
+      const showAlert = true;
+      const state = {
+        [NAMESPACE]: {
+          showAlert,
+        },
+      };
+      expect(getShowAlert(state)).toEqual(showAlert);
+    });
+  });
+
+  describe('getShowReversedAlert', () => {
+    it('should return true if name is longer than 2 chars and showAlert is true', () => {
+      const state = {
+        [NAMESPACE]: {
+          showAlert: true,
+          name: 'foo',
+        },
+      };
+      expect(getShowReversedAlert(state)).toEqual(true);
+    });
+
+    it('should return false if name is shorter than 3 chars', () => {
+      const state = {
+        [NAMESPACE]: {
+          showAlert: true,
+          name: 'fo',
+        },
+      };
+      expect(getShowReversedAlert(state)).toEqual(false);
+    });
+
+    it('should return false if showAlert is false', () => {
+      const state = {
+        [NAMESPACE]: {
+          showAlert: false,
+          name: 'foo',
+        },
+      };
+      expect(getShowReversedAlert(state)).toEqual(false);
+    });
+  });
+});

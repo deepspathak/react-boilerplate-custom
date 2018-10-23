@@ -1,0 +1,58 @@
+/*
+ *
+ * Test {{ properCase name }} Reducer
+ *
+ */
+
+import {{ camelCase name }}Reducer, { initialState } from '../reducer';
+import { UPDATE_NAME, REVERSE_NAME, SHOW_ALERT } from '../constants';
+
+describe('{{ camelCase name }}Reducer', () => {
+  describe('default', () => {
+    it('should return the initial state', () => {
+      expect({{ camelCase name }}Reducer(undefined, {})).toEqual(initialState);
+    });
+  });
+
+  describe('UPDATE_NAME', () => {
+    it('should update the name', () => {
+      const name = 'foo';
+      const action = {
+        type: UPDATE_NAME,
+        name,
+      };
+      const expected = {
+        name,
+      };
+      expect({{ camelCase name }}Reducer({}, action)).toEqual(expected);
+    });
+  });
+
+  describe('REVERSE_NAME', () => {
+    it('should reverse the name', () => {
+      const name = 'foo';
+      const action = {
+        type: REVERSE_NAME,
+      };
+      const expected = {
+        name: 'oof',
+      };
+      expect({{ camelCase name }}Reducer({ name }, action)).toEqual(expected);
+    });
+  });
+
+  describe('SHOW_ALERT', () => {
+    it('should make showAlert true', () => {
+      const action = {
+        type: SHOW_ALERT,
+      };
+      const state = {
+        showAlert: false,
+      };
+      const expected = {
+        showAlert: true,
+      };
+      expect({{ camelCase name }}Reducer(state, action)).toEqual(expected);
+    });
+  });
+});

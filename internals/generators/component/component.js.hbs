@@ -1,0 +1,21 @@
+/**
+ *
+ * {{ properCase name }}
+ *
+ */
+
+import React from 'react';
+import PropTypes from 'prop-types';
+
+export const {{ properCase name }} = ({ showDescription }) => (
+  <div>
+    <h3>{{ properCase name }}</h3>
+    {showDescription ? <p>I&#39;m a generated component.</p> : null}
+  </div>
+);
+
+{{ properCase name }}.propTypes = {
+  showDescription: PropTypes.bool,
+};
+
+export default {{ properCase name }};

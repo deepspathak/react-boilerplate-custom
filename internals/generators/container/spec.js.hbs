@@ -1,0 +1,24 @@
+/**
+ *
+ * Test {{properCase name }}
+ *
+ */
+
+import React from 'react';
+import { shallow } from 'enzyme';
+import { {{ properCase name }} } from '../index';
+
+describe('{{ properCase name }} Container', () => {
+  it('should exist', () => {
+    expect(shallow(<{{ properCase name }} />).exists()).toBe(true);
+  });
+
+  it('should not show the alert if showAlert is false', () => {
+    expect(shallow(<{{ properCase name }} showAlert={false} />).find('div > div').length).toBe(1);
+  });
+
+  it('should show the alert if showAlert is true', () => {
+    expect(shallow(<{{ properCase name }} showAlert />).find('div > div').length).toBe(2);
+  });
+
+});
